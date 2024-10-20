@@ -1,8 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     const gameContainer = document.getElementById('grid-container');
     const scoreElement = document.getElementById('score');
-
+    
     let board, score;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
 
     // 初始化游戏板
     function initBoard() {
@@ -16,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         scoreElement.textContent = score;
         addNewTile();
         addNewTile();
-        renderBoard(); // 确保渲染函数被调用
+        renderBoard();
     }
 
     // 添加新的方块
@@ -126,4 +130,37 @@ document.addEventListener("DOMContentLoaded", () => {
             move(event.key); // 根据按键调用移动函数
         }
     });
+
+    // 手势移动事件监听（适用于移动设备）
+    gameContainer.addEventListener('touchstart', function(event) {
+        touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
+    });
+
+    gameContainer.addEventListener('touchend', function(event) {
+        touchEndX = event.changedTouches[0].clientX;
+        touchEndY = event.changedTouches[0].clientY;
+        handleGesture();
+    });
+
+    function handleGesture() {
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+            // 水平滑动
+            if (diffX > 50) {
+                move("ArrowRight"); // 向右滑动
+            } else if (diffX < -50) {
+                move("ArrowLeft"); // 向左滑动
+            }
+        } else {
+            // 垂直滑动
+            if (diffY > 50) {
+                move("ArrowDown"); // 向下滑动
+            } else if (diffY < -50) {
+                move("ArrowUp"); // 向上滑动
+            }
+        }
+    }
 });
