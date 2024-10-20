@@ -3,10 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const scoreElement = document.getElementById('score');
     
     let board, score;
-    let touchStartX = 0;
-    let touchStartY = 0;
-    let touchEndX = 0;
-    let touchEndY = 0;
 
     // 初始化游戏板
     function initBoard() {
@@ -20,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         scoreElement.textContent = score;
         addNewTile();
         addNewTile();
-        renderBoard();
+        renderBoard(); // 确保渲染函数被调用
     }
 
     // 添加新的方块
@@ -131,34 +127,42 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 手势移动事件监听（适用于移动设备）
-    gameContainer.addEventListener('touchstart', function(event) {
-        touchStartX = event.touches[0].clientX;
-        touchStartY = event.touches[0].clientY;
-    });
+    // 滑动手势支持
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
 
-    gameContainer.addEventListener('touchend', function(event) {
-        touchEndX = event.changedTouches[0].clientX;
-        touchEndY = event.changedTouches[0].clientY;
-        handleGesture();
-    });
+    document.addEventListener("touchstart", function(event) {
+        touchStartX = event.changedTouches[0].screenX;
+        touchStartY = event.changedTouches[0].screenY;
+    }, false);
 
-    function handleGesture() {
-        const diffX = touchEndX - touchStartX;
-        const diffY = touchEndY - touchStartY;
+    document.addEventListener("touchend", function(event) {
+        touchEndX = event.changedTouches[0].screenX;
+        touchEndY = event.changedTouches[0].screenY;
+        handleSwipeGesture(); // 调用滑动处理函数
+    }, false);
 
-        if (Math.abs(diffX) > Math.abs(diffY)) {
-            // 水平滑动
-            if (diffX > 50) {
+    // 处理滑动手势
+    function handleSwipeGesture() {
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+
+        const swipeThreshold = 30; // 设置滑动的最小距离阈值
+
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+            // 左右滑动
+            if (deltaX > 0) {
                 move("ArrowRight"); // 向右滑动
-            } else if (diffX < -50) {
+            } else {
                 move("ArrowLeft"); // 向左滑动
             }
-        } else {
-            // 垂直滑动
-            if (diffY > 50) {
+        } else if (Math.abs(deltaY) > swipeThreshold) {
+            // 上下滑动
+            if (deltaY > 0) {
                 move("ArrowDown"); // 向下滑动
-            } else if (diffY < -50) {
+            } else {
                 move("ArrowUp"); // 向上滑动
             }
         }
