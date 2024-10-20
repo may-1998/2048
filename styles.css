@@ -24,4 +24,70 @@ html, body {
 /* 格子样式 */
 .grid-cell {
     background-color: #CDC1B4;
-    border-radius
+    border-radius: 5px;
+    font-size: 5vw; /* 使用百分比字体，适应不同设备 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.2s ease-in-out;
+    width: 100%; /* 宽度适应 */
+    height: 100%; /* 高度适应 */
+}
+
+/* 数字颜色的定义 */
+.grid-cell[data-value="2"] {
+    background-color: #EEE4DA;
+    color: #776E65;
+}
+
+.grid-cell[data-value="4"] {
+    background-color: #EDE0C8;
+    color: #776E65;
+}
+
+.grid-cell[data-value="8"] {
+    background-color: #F2B179;
+    color: #F9F6F2;
+}
+
+.grid-cell[data-value="16"] {
+    background-color: #F59563;
+    color: #F9F6F2;
+}
+
+.grid-cell[data-value="32"] {
+    background-color: #F67C5F;
+    color: #F9F6F2;
+}
+
+.grid-cell[data-value="64"] {
+    background-color: #F65E3B;
+    color: #F9F6F2;
+}
+
+.grid-cell[data-value="128"] {
+    background-color: #EDCF72;
+    color: #F9F6F2;
+}
+
+.grid-cell[data-value="256"] {
+    background-color: #EDCC61;
+    color: #F9F6F2;
+}
+
+.grid-cell[data-value="512"] {
+    background-color: #EDC850;
+    color: #F9F6F2;
+}
+
+.grid-cell[data-value="1024"] {
+    background-color: #EDC53F;
+    color: #F9F6F2;
+}
+
+.grid-cell[data-value="2048"] {
+    background-color: #EDC22E;
+    color: #F9F6F2;
+}
