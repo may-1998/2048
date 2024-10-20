@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
         board = [
             [0, 0, 0, 0],
             [0, 0, 0, 0],
-            [0, 0, 0, 0],
             [0, 0, 0, 0]
         ];
         score = 0;
@@ -135,12 +134,14 @@ document.addEventListener("DOMContentLoaded", () => {
     gameContainer.addEventListener('touchstart', function(event) {
         touchStartX = event.touches[0].clientX;
         touchStartY = event.touches[0].clientY;
+        event.preventDefault(); // 阻止默认行为（例如浏览器的滑动刷新）
     });
 
     gameContainer.addEventListener('touchend', function(event) {
         touchEndX = event.changedTouches[0].clientX;
         touchEndY = event.changedTouches[0].clientY;
         handleGesture();
+        event.preventDefault(); // 阻止默认行为（例如浏览器的滑动刷新）
     });
 
     function handleGesture() {
