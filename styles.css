@@ -24,13 +24,4 @@ html, body {
 /* 格子样式 */
 .grid-cell {
     background-color: #CDC1B4;
-    border-radius: 5px;
-    font-size: 5vw; /* 使用百分比字体，适应不同设备 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bold;
-    transition: transform 0.2s ease-in-out;
-    width: 100%; /* 宽度适应 */
-    height: 100%; /* 高度适应 */
+    border-radius
