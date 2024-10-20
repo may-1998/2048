@@ -1,75 +1,36 @@
 /* 禁用页面的滚动 */
 html, body {
     overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
-/* 游戏容器样式 */
+/* 游戏容器样式，使用百分比进行适配 */
 #game-container {
-    width: 400px;
-    margin: 0 auto;
+    width: 90%; /* 使用百分比，适应不同设备 */
+    max-width: 400px; /* 最大宽度设置为400px，避免太大 */
+    margin: 0 auto; /* 居中 */
 }
 
 #grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: repeat(4, 100px);
+    grid-template-columns: repeat(4, 1fr); /* 使用比例自适应每一列 */
+    grid-template-rows: repeat(4, 1fr); /* 使用比例自适应每一行 */
     gap: 10px;
+    max-width: 100%; /* 确保宽度适应 */
 }
 
 /* 格子样式 */
 .grid-cell {
     background-color: #CDC1B4;
     border-radius: 5px;
-    font-size: 24px;
+    font-size: 5vw; /* 使用百分比字体，适应不同设备 */
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     font-weight: bold;
     transition: transform 0.2s ease-in-out;
-}
-
-/* 数字颜色 */
-.grid-cell[data-value="2"] {
-    background-color: #00FFFF; /* 蓝色 */
-}
-
-.grid-cell[data-value="4"] {
-    background-color: #00FF00; /* 绿色 */
-}
-
-.grid-cell[data-value="8"] {
-    background-color: #FFFF00; /* 黄色 */
-}
-
-.grid-cell[data-value="16"] {
-    background-color: #FFA500; /* 橙色 */
-}
-
-.grid-cell[data-value="32"] {
-    background-color: #FF4500; /* 红色 */
-}
-
-.grid-cell[data-value="64"] {
-    background-color: #800080; /* 紫色 */
-}
-
-.grid-cell[data-value="128"] {
-    background-color: #FF69B4; /* 粉色 */
-}
-
-.grid-cell[data-value="256"] {
-    background-color: #C71585; /* 紫红色 */
-}
-
-.grid-cell[data-value="512"] {
-    background-color: #0000FF; /* 深蓝色 */
-}
-
-.grid-cell[data-value="1024"] {
-    background-color: #FFD700; /* 金色 */
-}
-
-.grid-cell[data-value="2048"] {
-    background-color: #228B22; /* 深绿色 */
-}
+    width: 100%; /* 宽度适应 */
+    height: 100%; /* 高度适应 */
