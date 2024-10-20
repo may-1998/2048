@@ -38,56 +38,56 @@ html, body {
 
 /* 数字对应的颜色 */
 .grid-cell[data-value="2"] {
-    background-color: #00FFFF; /* 蓝色 */
-    color: #FFFFFF;
+    background-color: #00FFFF !important; /* 蓝色 */
+    color: #FFFFFF !important;
 }
 
 .grid-cell[data-value="4"] {
-    background-color: #00FF00; /* 绿色 */
-    color: #FFFFFF;
+    background-color: #00FF00 !important; /* 绿色 */
+    color: #FFFFFF !important;
 }
 
 .grid-cell[data-value="8"] {
-    background-color: #FFFF00; /* 黄色 */
-    color: #FFFFFF;
+    background-color: #FFFF00 !important; /* 黄色 */
+    color: #FFFFFF !important;
 }
 
 .grid-cell[data-value="16"] {
-    background-color: #FFA500; /* 橙色 */
-    color: #FFFFFF;
+    background-color: #FFA500 !important; /* 橙色 */
+    color: #FFFFFF !important;
 }
 
 .grid-cell[data-value="32"] {
-    background-color: #FF4500; /* 红色 */
-    color: #FFFFFF;
+    background-color: #FF4500 !important; /* 红色 */
+    color: #FFFFFF !important;
 }
 
 .grid-cell[data-value="64"] {
-    background-color: #800080; /* 紫色 */
-    color: #FFFFFF;
+    background-color: #800080 !important; /* 紫色 */
+    color: #FFFFFF !important;
 }
 
 .grid-cell[data-value="128"] {
-    background-color: #FF69B4; /* 粉色 */
-    color: #FFFFFF;
+    background-color: #FF69B4 !important; /* 粉色 */
+    color: #FFFFFF !important;
 }
 
 .grid-cell[data-value="256"] {
-    background-color: #C71585; /* 紫红色 */
-    color: #FFFFFF;
+    background-color: #C71585 !important; /* 紫红色 */
+    color: #FFFFFF !important;
 }
 
 .grid-cell[data-value="512"] {
-    background-color: #0000FF; /* 深蓝色 */
-    color: #FFFFFF;
+    background-color: #0000FF !important; /* 深蓝色 */
+    color: #FFFFFF !important;
 }
 
 .grid-cell[data-value="1024"] {
-    background-color: #FFD700; /* 金色 */
-    color: #FFFFFF;
+    background-color: #FFD700 !important; /* 金色 */
+    color: #FFFFFF !important;
 }
 
 .grid-cell[data-value="2048"] {
-    background-color: #228B22; /* 深绿色 */
-    color: #FFFFFF;
+    background-color: #228B22 !important; /* 深绿色 */
+    color: #FFFFFF !important;
 }
