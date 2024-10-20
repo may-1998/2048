@@ -23,20 +23,20 @@ html, body {
 
 /* 格子样式 */
 .grid-cell {
-    background-color: #CDC1B4;
+    background-color: #CDC1B4 !important; /* 强制使用默认背景 */
     border-radius: 5px;
     font-size: 5vw; /* 使用百分比字体，适应不同设备 */
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: white !important; /* 确保字体颜色生效 */
     font-weight: bold;
     transition: transform 0.2s ease-in-out;
     width: 100%; /* 宽度适应 */
     height: 100%; /* 高度适应 */
 }
 
-/* 数字对应的颜色 */
+/* 数字对应的颜色，使用 !important 确保优先加载 */
 .grid-cell[data-value="2"] {
     background-color: #00FFFF !important; /* 蓝色 */
     color: #FFFFFF !important;
