@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         scoreElement.textContent = score;
         addNewTile();
         addNewTile();
-        renderBoard(); // 确保渲染函数被调用
+        renderBoard();
     }
 
     // 添加新的方块
@@ -44,10 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 cell.classList.add('grid-cell');
                 cell.dataset.value = board[i][j];
                 cell.textContent = board[i][j] === 0 ? '' : board[i][j];
-                gameContainer.appendChild(cell); // 将每个格子加入到游戏网格容器中
+                gameContainer.appendChild(cell);
             }
         }
-        scoreElement.textContent = score; // 更新得分显示
+        scoreElement.textContent = score;
     }
 
     // 合并行
@@ -124,9 +124,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // 检查是否可以合并
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 4; j++) {
-                // 检查右边和下边的方块是否相同（不用检查左边和上边，因为那是对称的）
-                if (j < 3 && board[i][j] === board[i][j + 1]) return; // 检查是否可以向右合并
-                if (i < 3 && board[i][j] === board[i + 1][j]) return; // 检查是否可以向下合并
+                // 检查右边和下边的方块是否相同
+                if (j < 3 && board[i][j] === board[i][j + 1]) return;
+                if (i < 3 && board[i][j] === board[i + 1][j]) return;
             }
         }
 
@@ -176,29 +176,26 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("touchend", function(event) {
         touchEndX = event.changedTouches[0].screenX;
         touchEndY = event.changedTouches[0].screenY;
-        handleSwipeGesture(); // 调用滑动处理函数
+        handleSwipeGesture();
     }, false);
 
     // 处理滑动手势
     function handleSwipeGesture() {
         const deltaX = touchEndX - touchStartX;
         const deltaY = touchEndY - touchStartY;
-
         const swipeThreshold = 30; // 设置滑动的最小距离阈值
 
         if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
-            // 左右滑动
             if (deltaX > 0) {
-                move("ArrowRight"); // 向右滑动
+                move("ArrowRight");
             } else {
-                move("ArrowLeft"); // 向左滑动
+                move("ArrowLeft");
             }
         } else if (Math.abs(deltaY) > swipeThreshold) {
-            // 上下滑动
             if (deltaY > 0) {
-                move("ArrowDown"); // 向下滑动
+                move("ArrowDown");
             } else {
-                move("ArrowUp"); // 向上滑动
+                move("ArrowUp");
             }
         }
     }
