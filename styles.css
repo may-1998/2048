@@ -36,58 +36,58 @@ html, body {
     height: 100%; /* 高度适应 */
 }
 
-/* 数字颜色的定义 */
+/* 数字对应的颜色 */
 .grid-cell[data-value="2"] {
-    background-color: #EEE4DA;
-    color: #776E65;
+    background-color: #00FFFF; /* 蓝色 */
+    color: #FFFFFF;
 }
 
 .grid-cell[data-value="4"] {
-    background-color: #EDE0C8;
-    color: #776E65;
+    background-color: #00FF00; /* 绿色 */
+    color: #FFFFFF;
 }
 
 .grid-cell[data-value="8"] {
-    background-color: #F2B179;
-    color: #F9F6F2;
+    background-color: #FFFF00; /* 黄色 */
+    color: #FFFFFF;
 }
 
 .grid-cell[data-value="16"] {
-    background-color: #F59563;
-    color: #F9F6F2;
+    background-color: #FFA500; /* 橙色 */
+    color: #FFFFFF;
 }
 
 .grid-cell[data-value="32"] {
-    background-color: #F67C5F;
-    color: #F9F6F2;
+    background-color: #FF4500; /* 红色 */
+    color: #FFFFFF;
 }
 
 .grid-cell[data-value="64"] {
-    background-color: #F65E3B;
-    color: #F9F6F2;
+    background-color: #800080; /* 紫色 */
+    color: #FFFFFF;
 }
 
 .grid-cell[data-value="128"] {
-    background-color: #EDCF72;
-    color: #F9F6F2;
+    background-color: #FF69B4; /* 粉色 */
+    color: #FFFFFF;
 }
 
 .grid-cell[data-value="256"] {
-    background-color: #EDCC61;
-    color: #F9F6F2;
+    background-color: #C71585; /* 紫红色 */
+    color: #FFFFFF;
 }
 
 .grid-cell[data-value="512"] {
-    background-color: #EDC850;
-    color: #F9F6F2;
+    background-color: #0000FF; /* 深蓝色 */
+    color: #FFFFFF;
 }
 
 .grid-cell[data-value="1024"] {
-    background-color: #EDC53F;
-    color: #F9F6F2;
+    background-color: #FFD700; /* 金色 */
+    color: #FFFFFF;
 }
 
 .grid-cell[data-value="2048"] {
-    background-color: #EDC22E;
-    color: #F9F6F2;
+    background-color: #228B22; /* 深绿色 */
+    color: #FFFFFF;
 }
