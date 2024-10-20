@@ -137,10 +137,28 @@ document.addEventListener("DOMContentLoaded", () => {
     // 初始化游戏
     initBoard();
 
-    // 键盘移动事件监听
+    // 键盘移动事件监听，包括方向键和 WASD 控制
     document.addEventListener('keydown', (event) => {
-        if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
-            move(event.key); // 根据按键调用移动函数
+        const key = event.key;
+        if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'w', 'a', 's', 'd'].includes(key)) {
+            switch (key) {
+                case 'ArrowUp':
+                case 'w':
+                    move('ArrowUp');
+                    break;
+                case 'ArrowDown':
+                case 's':
+                    move('ArrowDown');
+                    break;
+                case 'ArrowLeft':
+                case 'a':
+                    move('ArrowLeft');
+                    break;
+                case 'ArrowRight':
+                case 'd':
+                    move('ArrowRight');
+                    break;
+            }
         }
     });
 
