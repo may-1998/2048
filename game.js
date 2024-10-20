@@ -110,11 +110,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 检查游戏状态
     function checkGameStatus() {
+        // 如果有2048，游戏胜利
         if (board.some(row => row.includes(2048))) {
             alert("恭喜你！你赢了！");
-        } else if (!board.flat().includes(0)) {
-            alert("游戏结束！");
+            return;
         }
+
+        // 检查是否还有空格
+        if (board.flat().includes(0)) {
+            return; // 如果有空格，游戏还未结束
+        }
+
+        // 检查是否可以合并
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 4; j++) {
+                // 检查右边和下边的方块是否相同（不用检查左边和上边，因为那是对称的）
+                if (j < 3 && board[i][j] === board[i][j + 1]) return; // 检查是否可以向右合并
+                if (i < 3 && board[i][j] === board[i + 1][j]) return; // 检查是否可以向下合并
+            }
+        }
+
+        // 如果无法合并且没有空格，游戏结束
+        alert("游戏结束！");
     }
 
     // 初始化游戏
