@@ -1,8 +1,9 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
+/* 禁用页面的滚动 */
+html, body {
+    overflow: hidden;
 }
 
+/* 游戏容器样式 */
 #game-container {
     width: 400px;
     margin: 0 auto;
@@ -15,6 +16,7 @@ body {
     gap: 10px;
 }
 
+/* 格子样式 */
 .grid-cell {
     background-color: #CDC1B4;
     border-radius: 5px;
@@ -27,7 +29,7 @@ body {
     transition: transform 0.2s ease-in-out;
 }
 
-/* 为每个数字设置不同的颜色 */
+/* 数字颜色 */
 .grid-cell[data-value="2"] {
     background-color: #00FFFF; /* 蓝色 */
 }
